@@ -12,6 +12,13 @@ var roleUpgrader = {
     /** @param {Creep} creep **/
     run: function(creep) {
 
+        if (!creep.room.controller.sign || creep.room.controller.sign.username != "RealNerdEthan") {
+            if (creep.signController(creep.room.controller, "github.com/RealNerdEthan") == ERR_NOT_IN_RANGE) {
+                creep.moveTo(creep.room.controller);
+                return;
+            }
+        }
+        
         if(creep.memory.upgrading && creep.store[RESOURCE_ENERGY] == 0) {
             creep.memory.upgrading = false;
             creep.say('🔄 harvest');
@@ -20,13 +27,6 @@ var roleUpgrader = {
         if(!creep.memory.upgrading && creep.store.getFreeCapacity() == 0) {
             creep.memory.upgrading = true;
             creep.say('⚡ upgrade');
-        }
-
-        if (!creep.room.controller.sign || creep.room.controller.sign.username != "RealNerdEthan") {
-            if (creep.signController(creep.room.controller, "github.com/RealNerdEthan") == ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.room.controller);
-                return;
-            }
         }
 
         if(creep.memory.upgrading) {
