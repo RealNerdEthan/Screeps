@@ -36,12 +36,20 @@ module.exports.loop = function () {
             {memory: {role: "harvester"}});        
     }
 
+    if(upgrader.length < 1) {
+        var newName = "Upgrader" + Game.time;
+        console.log("Spawning new upgrader: " + newName);
+        Game.spawns["Spawn1"].spawnCreep([WORK,CARRY,MOVE], newName, 
+            {memory: {role: "upgrader"}});        
+    }
+
     if(builder.length < 2) {
         var newName = "Builder" + Game.time;
         console.log("Spawning new builder: " + newName);
         Game.spawns["Spawn1"].spawnCreep([WORK,CARRY,MOVE], newName, 
             {memory: {role: "builder"}});        
     }
+
     
     if(Game.spawns["Spawn1"].spawning) { 
         var spawningCreep = Game.creeps[Game.spawns["Spawn1"].spawning.name];
