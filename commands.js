@@ -22,9 +22,5 @@ Game.spawns["Spawn1"].room.controller.activateSafeMode();
 //Create constuction site (for a tower):
 Game.spawns["Spawn1"].room.createConstructionSite( 23, 22, STRUCTURE_TOWER );
 
-//Update the room sign
-if(Upgrader1.room.controller) {
-    if(creep.signController(creep.room.controller, "github.com/realnerdethan") == ERR_NOT_IN_RANGE) {
-        creep.moveTo(creep.room.controller);
-    }
-}
+//Update the room's sign information
+Game.creeps.Upgrader1.signController(Game.creeps.Upgrader1.room.controller, "github.com/realnerdethan");
