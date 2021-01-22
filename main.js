@@ -11,7 +11,7 @@ module.exports.loop = function () {
         }
     }
     
-    // var tower = Game.getObjectById('54962b91eb35c212d000adae');
+    // var tower = Game.getObjectById('TOWER_ID');
     // if(tower) {
     //     var closestDamagedStructure = tower.pos.findClosestByRange(FIND_STRUCTURES, {
     //         filter: (structure) => structure.hits < structure.hitsMax
