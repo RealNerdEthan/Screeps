@@ -60,7 +60,7 @@ module.exports.loop = function () {
     var repairers = _.filter(Game.creeps, (creep) => creep.memory.role == "repairer");
     console.log("Repairers: " + repairers.length);
 
-    if(repairers.length < 1) {
+    if(repairers.length < 2) {
         var newName = "Repairer" + Game.time;
         console.log("Spawning new repairer: " + newName);
         Game.spawns["Spawn1"].spawnCreep([WORK,WORK,CARRY,MOVE], newName, 
