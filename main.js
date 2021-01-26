@@ -33,7 +33,7 @@ module.exports.loop = function () {
     if(harvesters.length < 2) {
         var newName = "Harvester" + Game.time;
         console.log("Spawning new harvester: " + newName);
-        Game.spawns["Spawn1"].spawnCreep([WORK,WORK,CARRY,MOVE], newName, 
+        Game.spawns["Spawn1"].spawnCreep([WORK,WORK,CARRY,MOVE,MOVE], newName, 
             {memory: {role: "harvester"}});        
     }
 
@@ -43,7 +43,7 @@ module.exports.loop = function () {
     if(upgraders.length < 1) {
         var newName = "Upgrader" + Game.time;
         console.log("Spawning new upgrader: " + newName);
-        Game.spawns["Spawn1"].spawnCreep([WORK,WORK,CARRY,MOVE], newName, 
+        Game.spawns["Spawn1"].spawnCreep([WORK,WORK,CARRY,MOVE,MOVE], newName, 
             {memory: {role: "upgrader"}});        
     }
 
@@ -94,4 +94,8 @@ module.exports.loop = function () {
     // for(var name in Game.rooms) {
     //     console.log('Room "'+name+'" has '+Game.rooms[name].energyAvailable+' energy');
     // }
+
+    if (Game.cpu.bucket == 10000) {
+        Game.cpu.generatePixel();
+    }
 }
